@@ -14,5 +14,6 @@ namespace Dept_Labour_Immi.Data
         public DbSet<Blacklist> blacklists { get; set; }
         public DbSet<BOD> bODs { get; set; }
         public DbSet<ThaiCompany> thaiCompanies { get; set; }
+        public DbSet<DOE> dOEs { get; set; }
     }
 }
