@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Dept_Labour_Immi.Models.ThaiCompany>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                အမှတ်စဥ်
+            </th>
+            <th>
+                ထိုင်းကုမ္ပဏီအမည်
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var index = 1;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @index
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+            index++;
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var duplicatmsg = "@TempData["Message"]";
+            if (duplicatmsg != "") {
+                $("#Message").text(duplicatmsg);
+                $("#headerId").html("Thai Company");
+                $('#SuccessModal').modal('show');
+            }
+        });
+
+    </script>
+}
