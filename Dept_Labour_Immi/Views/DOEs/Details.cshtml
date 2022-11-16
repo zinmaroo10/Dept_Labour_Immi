@@ -1,0 +1,31 @@
+﻿@model Dept_Labour_Immi.Models.DOE
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>DOE</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DOENo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DOENo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @*@Html.DisplayFor(model => model.Date)*@
+            @Convert.ToDateTime(Model.Date).ToString("dd/MM/yyyy")
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

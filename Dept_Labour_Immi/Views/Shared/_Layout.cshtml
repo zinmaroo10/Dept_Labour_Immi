@@ -34,6 +34,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Blacklists" asp-action="index">Black Lists</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="DOEs" asp-action="index">D-O-E</a>
+                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -45,15 +48,43 @@
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - Dept_Labour_Immi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
+    <!--SuccessModal-->
+    <div class="modal" tabindex="-1" role="dialog" id="SuccessModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="headerId"></h5>
+                    <button type="button" id="SuccessModalCloseBtn" style="cursor:pointer;" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="Message"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" style="cursor:pointer;" id="SuccessModalBtn" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--SuccessModal-->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        $('#SuccessModalBtn').click(function () {
+            $('#SuccessModal').modal('hide');
+        });
+        $('#SuccessModalCloseBtn').click(function () {
+            $('#SuccessModal').modal('hide');
+        });
+    </script>
 </body>
 </html>
